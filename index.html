@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Hangman Game</title>
+<link rel="icon" type="image/png" href="hangman.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <section id="name-screen" class="screen active" aria-label="Player Name Entry">
+    <h1>Welcome to Hangman by Lyssa</h1>
+    <input
+      type="text"
+      id="player-name"
+      placeholder="Enter your name"
+      autocomplete="off"
+      aria-label="Player name"
+      />
+    <div id="name-error-message" class="error-message" role="alert" aria-live="assertive"></div>
+    <button id="start-btn" aria-live="polite">Start Game</button>
+    <button id="how-to-play-btn" aria-label="How to play">
+      <span class="howto-icon">!</span> How to Play
+    </button>
+  </section>
+
+  <section id="game-screen" class="screen" aria-label="Hangman Game" tabindex="0">
+    <h1>Hangman by Lyssa</h1>
+    <canvas id="hangman-canvas" width="240" height="240" aria-label="Hangman drawing"></canvas>
+
+    <p id="category-hint-container">Category: <span id="category-name" aria-live="polite"></span></p>
+
+    <p id="word" aria-live="polite"></p>
+    <p id="wrong-letters-container">Wrong letters: <span id="wrong-letters" aria-live="polite"></span></p>
+    <p id="guesses-info" aria-live="polite"></p>
+    <div id="message" role="alert" aria-live="assertive"></div>
+
+    <div id="keyboard" aria-label="Letter keyboard" role="group"></div>
+
+    <button id="play-again" aria-live="polite">Play Again</button>
+    <button id="show-history-btn" aria-live="polite">Show History</button>
+  </section>
+
+  <div id="history-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="history-title">
+    <div id="history-content">
+      <h3 id="history-title">Game History</h3>
+      <ul id="history-list"></ul>
+      <button id="close-history">Close</button>
+    </div>
+  </div>
+
+  <div id="howto-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="howto-title">
+    <div id="howto-content">
+      <h3 id="howto-title">How to Play Hangman by Lyssa</h3>
+      <ol style="margin-bottom:18px;">
+        <li>Please kindly enter your name (Doesn't need to be real name) Then press enter or click start game to start playing.</li>
+        <li>Guess the secret word one letter at a time based on the provided clue.</li>
+        <li>Click the on-screen keyboard or use your real keyboard to play.</li>
+        <li>Each wrong guess draws part of the hangman.</li>
+        <li>You'll lose if the hangman is complete.</li>
+        <li>You'll win if you guess all letters before the hangman is complete.</li>
+        <li>Press <b>P</b> to play again after a game, or <b>H</b> to view history.</li>
+        <li style="list-style: none; text-align: center; font-size: larger"><b>Thank you for playing my game.</b></li>
+        <li style="list-style: none; text-align: right; font-size: larger"><b>Sincerely,</b></li>
+        <li style="list-style: none; text-align: right; font-size: larger"><b>Lyssa</b></li>
+      </ol>
+      <button id="close-howto">Close</button>
+    </div>
+  </div>
+
+<script src="script.js"></script>
+</body>
+</html>
