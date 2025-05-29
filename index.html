@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Hangman Game</title>
+<link rel="icon" type="image/png" href="hangman.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <section id="name-screen" class="screen active" aria-label="Player Name Entry">
+    <h1>Welcome to Hangman by Lyssa</h1>
+    <input
+      type="text"
+      id="player-name"
+      placeholder="Enter your name"
+      autocomplete="off"
+      aria-label="Player name"
+      />
+    <div id="name-error-message" class="error-message" role="alert" aria-live="assertive"></div>
+    <button id="start-btn" aria-live="polite">Start Game</button>
+  </section>
+
+  <section id="game-screen" class="screen" aria-label="Hangman Game" tabindex="0">
+    <h1>Hangman by Lyssa</h1>
+    <canvas id="hangman-canvas" width="240" height="240" aria-label="Hangman drawing"></canvas>
+
+    <p id="category-hint-container">Category: <span id="category-name" aria-live="polite"></span></p>
+
+    <p id="word" aria-live="polite"></p>
+    <p id="wrong-letters-container">Wrong letters: <span id="wrong-letters" aria-live="polite"></span></p>
+    <p id="guesses-info" aria-live="polite"></p>
+    <div id="message" role="alert" aria-live="assertive"></div>
+
+    <div id="keyboard" aria-label="Letter keyboard" role="group"></div>
+
+    <button id="play-again" aria-live="polite">Play Again</button>
+    <button id="show-history-btn" aria-live="polite">Show History</button>
+  </section>
+
+  <div id="history-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="history-title">
+    <div id="history-content">
+      <h3 id="history-title">Game History</h3>
+      <ul id="history-list"></ul>
+      <button id="close-history">Close</button>
+    </div>
+  </div>
+
+<script src="script.js"></script>
+</body>
+</html>
